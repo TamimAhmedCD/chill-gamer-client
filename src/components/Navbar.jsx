@@ -5,11 +5,19 @@ import {
   Typography,
   Button,
   IconButton,
+  MenuItem,
+  MenuList,
+  MenuHandler,
+  Menu,
 } from "@material-tailwind/react";
 
 import logo from "../assets/logo.svg";
 import { Link, NavLink } from "react-router-dom";
 import { AuthProvider } from "../context/AuthContext";
+import { FaCircleUser } from "react-icons/fa6";
+import { HiInboxArrowDown } from "react-icons/hi2";
+import { IoIosHelpBuoy, IoMdSettings } from "react-icons/io";
+import { MdBookmarkAdd } from "react-icons/md";
 
 export function NavbarR() {
   const { user, logOut } = useContext(AuthProvider);
@@ -21,6 +29,32 @@ export function NavbarR() {
       () => window.innerWidth >= 960 && setOpenNav(false)
     );
   }, []);
+
+  const profile = (
+    <>
+      <MenuItem>
+        <div className="flex gap-2">
+          <FaCircleUser></FaCircleUser> <Link to="/my_profile">My Profile</Link>
+        </div>
+      </MenuItem>
+      <MenuItem>
+        <div className="flex gap-2">
+          <IoMdSettings />{" "}
+          <Link to="/my_profile/update_profile">Edit Profile</Link>
+        </div>
+      </MenuItem>
+      <MenuItem>
+        <div className="flex gap-2">
+          <HiInboxArrowDown /> Inbox
+        </div>
+      </MenuItem>
+      <MenuItem>
+        <div className="flex gap-2">
+          <IoIosHelpBuoy /> Help
+        </div>
+      </MenuItem>
+    </>
+  );
 
   const navList = (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
@@ -51,9 +85,9 @@ export function NavbarR() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
-          Blocks
-        </a>
+        <NavLink to="/add-review" className="flex items-center text-white">
+          Add Reviews
+        </NavLink>
       </Typography>
       <Typography
         as="li"
@@ -61,9 +95,9 @@ export function NavbarR() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
-          Docs
-        </a>
+        <NavLink to="/My-review" className="flex items-center text-white">
+          My Reviews
+        </NavLink>
       </Typography>
     </ul>
   );
@@ -85,6 +119,106 @@ export function NavbarR() {
             <div className="mr-4 hidden lg:block">{navList}</div>
             {user ? (
               <div className="flex items-center gap-x-3">
+                {/* WatchList Menu */}
+              <Menu placement="bottom-start">
+                <MenuHandler>
+                    <IconButton
+                      size="md"
+                      className="rounded-full bg-transparent"
+                    >
+                      <MdBookmarkAdd className="text-3xl text-white"/>
+                    </IconButton>
+                </MenuHandler>
+                <MenuList>
+                  <div className="flex items-center gap-3">
+                    <div>
+                      {user && user.photoURL ? (
+                        <img
+                          src={user.photoURL}
+                          className="w-8 h-8 object-cover rounded-full"
+                          alt=""
+                        />
+                      ) : (
+                        <FaCircleUser className="text-3xl text-black  "></FaCircleUser>
+                      )}
+                    </div>
+                    <div>
+                      {user && user.displayName ? (
+                        <h1 className="font-semibold text-gray-800">
+                          {user.displayName}
+                        </h1>
+                      ) : (
+                        <h1 className="font-semibold text-gray-800">
+                          User Name
+                        </h1>
+                      )}
+                      {user && user.email ? (
+                        <p className="text-sm font-normal text-gray-800">
+                          {user.email}
+                        </p>
+                      ) : (
+                        <h1>email@user.com</h1>
+                      )}
+                    </div>
+                  </div>
+                  <div className="divider mt-0 mb-0"></div>
+                  <div>{profile}</div>
+                </MenuList>
+              </Menu>
+              {/* Profile Menu */}
+                <Menu placement="bottom-start">
+                <MenuHandler>
+                  {user && user.photoURL ? (
+                    <img
+                      src={user.photoURL}
+                      className="rounded-full w-9 h-9 object-cover cursor-pointer"
+                      alt=""
+                    />
+                  ) : (
+                    <IconButton
+                      size="md"
+                      className="rounded-full bg-transparent"
+                    >
+                      <FaCircleUser className="text-4xl text-black  "></FaCircleUser>
+                    </IconButton>
+                  )}
+                </MenuHandler>
+                <MenuList>
+                  <div className="flex items-center gap-3">
+                    <div>
+                      {user && user.photoURL ? (
+                        <img
+                          src={user.photoURL}
+                          className="w-8 h-8 object-cover rounded-full"
+                          alt=""
+                        />
+                      ) : (
+                        <FaCircleUser className="text-3xl text-black  "></FaCircleUser>
+                      )}
+                    </div>
+                    <div>
+                      {user && user.displayName ? (
+                        <h1 className="font-semibold text-gray-800">
+                          {user.displayName}
+                        </h1>
+                      ) : (
+                        <h1 className="font-semibold text-gray-800">
+                          User Name
+                        </h1>
+                      )}
+                      {user && user.email ? (
+                        <p className="text-sm font-normal text-gray-800">
+                          {user.email}
+                        </p>
+                      ) : (
+                        <h1>email@user.com</h1>
+                      )}
+                    </div>
+                  </div>
+                  <div className="divider mt-0 mb-0"></div>
+                  <div>{profile}</div>
+                </MenuList>
+              </Menu>
                 <Link onClick={logOut} className="hidden lg:block">
                   <Button variant="text" size="sm" className="btn">
                     <span>Log Out</span>

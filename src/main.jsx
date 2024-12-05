@@ -9,6 +9,9 @@ import AllReview from "./pages/AllReview";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import AuthContext from "./context/AuthContext";
+import AddReview from "./pages/AddReview";
+import MyReview from "./pages/MyReview";
+import PrivateRoute from "./routes/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +34,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: '/add-review',
+        element: <PrivateRoute><AddReview/></PrivateRoute>
+      },
+      {
+        path: '/my-review',
+        element: <PrivateRoute><MyReview/></PrivateRoute>
       },
     ],
   },

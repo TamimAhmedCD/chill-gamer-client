@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 body {
-  background-color: hsla(279, 42%, 9%, 1);
+  background-color: #1a0d21;
   background-image: url("./assets/body-bg.jpg");
   background-repeat: no-repeat;
   font-family: 'Raleway', sans-serif;
@@ -27,7 +27,7 @@ body {
   /* gradient color */
   --gradient-1: linear-gradient(
     to right bottom,
-    hsl(299, 100%, 52%),
+    #fb0aff,
     hsl(291, 100%, 58%),
     hsl(283, 100%, 60%),
     hsl(273, 100%, 62%),

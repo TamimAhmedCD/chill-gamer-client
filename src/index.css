@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
-
+@import url(https://fonts.googleapis.com/css?family=Changa+One:regular,italic);
+@import url(https://fonts.googleapis.com/css?family=Oxanium:200,300,regular,500,600,700,800);
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,7 +18,7 @@ body {
 
   /* background color */
   --bg-purple: #9742ff;
-  --bg-purple-alpha-30: hsla(267, 100%, 63%, 0.3);
+  --bg-purple-alpha-30: #9742ff4d;
   --bg-dark-purple: hsla(279, 42%, 9%, 1);
   --bg-oxford-blue: #0c0c36;
   --bg-oxford-blue-alpha-95: hsla(240, 63%, 13%, 0.95);
@@ -31,11 +32,11 @@ body {
     hsl(291, 100%, 58%),
     hsl(283, 100%, 60%),
     hsl(273, 100%, 62%),
-    hsl(262, 100%, 63%),
+    #8742ff,
     hsl(242, 100%, 69%),
     hsl(223, 100%, 62%),
     hsl(210, 100%, 50%),
-    hsl(203, 100%, 50%),
+    #009dff,
     hsl(198, 100%, 50%),
     hsl(192, 100%, 48%),
     hsl(185, 90%, 48%)
@@ -167,4 +168,8 @@ body {
 
 .btn:is(:hover, :focus-visible)::before {
   transform: translate(-50%, -50%) scale(1);
+}
+
+.active {
+  color: #fb0aff;
 }

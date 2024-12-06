@@ -95,7 +95,7 @@ export function NavbarR() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <NavLink to="/My-review" className="flex items-center text-white">
+        <NavLink to="/my-review" className="flex items-center text-white">
           My Reviews
         </NavLink>
       </Typography>

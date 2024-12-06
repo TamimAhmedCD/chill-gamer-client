@@ -15,7 +15,7 @@ const BannerSlider = () => {
               <Typography
                 variant="h1"
                 color="white"
-                className="lg:mb-3 text-2xl md:text-4xl lg:text-6xl"
+                className="lg:mb-3 text-2xl md:text-4xl lg:text-6xl font-oxanium"
               >
                 BEAUTIFUL GAME,<br /> INTENSE REALITY
               </Typography>

@@ -85,7 +85,7 @@ const Login = () => {
         </div>
         <div className="mx-auto flex flex-col justify-center">
           <h1 className="text-4xl text-white font-semibold">
-            Create an account
+            Welcome Back ! 🎮
           </h1>
           <p className="text-gray-400 pt-5 pb-6">
             Don&apos;t have account?{" "}
@@ -93,7 +93,7 @@ const Login = () => {
               Register
             </Link>
           </p>
-          <form onSubmit={handleLogin}>
+          <form onSubmit={handleLogin} className="text-white">
             <input
               type="email"
               placeholder="Email"

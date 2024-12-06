@@ -1,26 +1,36 @@
 import {
-  Card,
-  CardHeader,
-  CardBody,
-  Typography,
   Button,
+  Card,
+  CardBody,
+  CardHeader,
+  Typography,
 } from "@material-tailwind/react";
 
-const ReviewCard = ({ review }) => {
-  const { photo, gameName, rating, description, option, publishYear } = review;
-
+const HighestRatedGameCard = ({ topReview }) => {
+  console.log(topReview);
+  const { photo, gameName, rating, description, option, publishYear } =
+    topReview;
   return (
-      <div className="">
-        <Card className="w-full max-w-[26rem] bg-opacity-20 backdrop-blur-lg bg-[#9742ff] border border-[#9742ff]">
-        <CardHeader floated={false} color="blue-gray" className="shadow-none">
+    <div className="">
+      <Card className="w-full max-w-[26rem] bg-opacity-20 backdrop-blur-lg bg-[#9742ff] rounded-2xl">
+        <CardHeader
+          floated={false}
+          color="blue-gray"
+          className="shadow-none mt-0 mx-0 rounded-none rounded-t-2xl"
+        >
           <img
             src={photo}
             alt={gameName}
-            className="min-h-56 h-full object-cover"
+            className="min-h-60 h-full object-cover"
           />
           <div className="to-bg-black-10 absolute inset-0 w-full bg-gradient-to-tr from-transparent via-transparent to-black/60 " />
         </CardHeader>
-        <CardBody className="p-0 px-6 pt-6">
+        <div className="px-6 flex pt-5">
+          <h1 className="px-4 p-1 bg-[#9742ff] text-sm backdrop-blur-3xl bg-opacity-10 rounded-md text-[#fb0aff]">
+            {option}
+          </h1>
+        </div>
+        <CardBody className="p-0 px-6 pt-3">
           <div className="mb-3 flex items-center justify-between">
             <Typography
               variant="h5"
@@ -29,6 +39,13 @@ const ReviewCard = ({ review }) => {
             >
               {gameName}
             </Typography>
+          </div>
+          <Typography className="text-gray-400 text-justify">
+            {description.slice(0, 80)} ....
+          </Typography>
+        </CardBody>
+        <div className="flex justify-between p-6 items-center">
+          <div>
             <Typography
               color="blue-gray"
               className="flex items-center gap-1.5 font-normal text-gray-500"
@@ -48,26 +65,13 @@ const ReviewCard = ({ review }) => {
               {rating}
             </Typography>
           </div>
-          <Typography className="text-gray-400 text-justify">
-          {description.slice(0, 140)} ....
-          </Typography>
-        </CardBody>
-        <div className="flex justify-between p-6 items-center">
-          <div>
-            <p className="text-gray-300">
-              Release Date: <span className="text-gray-500">{publishYear}</span>
-            </p>
-            <p className="text-gray-300">
-              Genres: <span className="text-gray-500">{option}</span>
-            </p>
-          </div>
           <Button size="lg" fullWidth={false} className="btn">
-          Explore
+            Explore
           </Button>
         </div>
       </Card>
-      </div>
+    </div>
   );
 };
 
-export default ReviewCard;
+export default HighestRatedGameCard;

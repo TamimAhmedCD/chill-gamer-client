@@ -97,6 +97,7 @@ const Login = () => {
             <input
               type="email"
               placeholder="Email"
+              name="email"
               required
               className="input input-bordered focus:outline-[#9742ffc9] w-full border-none bg-[#fff] bg-opacity-10 mt-4"
             />

@@ -5,6 +5,7 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
+import PropTypes from "prop-types";
 
 const ReviewCard = ({ review }) => {
   const { photo, gameName, rating, description, option, publishYear } = review;
@@ -68,6 +69,10 @@ const ReviewCard = ({ review }) => {
       </Card>
       </div>
   );
+};
+
+ReviewCard.propTypes = {
+  review: PropTypes.any,
 };
 
 export default ReviewCard;

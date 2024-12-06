@@ -5,10 +5,11 @@ import {
   CardHeader,
   Typography,
 } from "@material-tailwind/react";
+import PropTypes from "prop-types";
 
 const HighestRatedGameCard = ({ topReview }) => {
   console.log(topReview);
-  const { photo, gameName, rating, description, option, publishYear } =
+  const { photo, gameName, rating, description, option, } =
     topReview;
   return (
     <div className="">
@@ -41,7 +42,7 @@ const HighestRatedGameCard = ({ topReview }) => {
             </Typography>
           </div>
           <Typography className="text-gray-400 text-justify">
-            {description.slice(0, 80)} ....
+            {description.slice(0, 75)} ....
           </Typography>
         </CardBody>
         <div className="flex justify-between p-6 items-center">
@@ -73,5 +74,9 @@ const HighestRatedGameCard = ({ topReview }) => {
     </div>
   );
 };
+
+HighestRatedGameCard.propTypes = {
+    topReview: PropTypes.any,
+  };
 
 export default HighestRatedGameCard;

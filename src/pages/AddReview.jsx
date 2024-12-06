@@ -56,12 +56,13 @@ const AddReview = () => {
   return (
     <div className="w-11/12 lg:w-10/12 mx-auto">
       <div className="py-10">
-        <div className="border bg-white backdrop-blur-3xl bg-opacity-5 text-white p-5 md:p-10 rounded-xl">
+        <div className="border bg-white backdrop-blur-3xl bg-opacity-5 text-white p-5 md:p-10 rounded-xl border-[#9742ff]">
           <h1 className="text-center font-bold text-3xl">Add a New Review</h1>
           <form className="text-white mt-10" onSubmit={handleReview}>
             <div className="flex gap-4 w-full">
               <input
                 type="text"
+                readOnly
                 name="name"
                 defaultValue={user.displayName}
                 className="input input-bordered focus:outline-[#9742ffc9] w-full border-none bg-white cursor-not-allowed bg-opacity-10"
@@ -70,6 +71,7 @@ const AddReview = () => {
                 type="email"
                 placeholder="Email"
                 name="email"
+                readOnly
                 defaultValue={user.email}
                 className="input input-bordered focus:outline-[#9742ffc9] w-full border-none bg-white bg-opacity-10 cursor-not-allowed"
               />

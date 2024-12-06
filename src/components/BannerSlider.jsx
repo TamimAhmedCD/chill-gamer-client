@@ -2,16 +2,16 @@ import { Button, Carousel, Typography } from "@material-tailwind/react";
 
 const BannerSlider = () => {
   return (
-    <div className="h-screen">
+    <div className="">
       <Carousel className="">
-        <div className="relative h-full w-full">
+        <div className="relative w-full flex">
         <img
           src="https://wallpapersmug.com/download/1366x768/b455a3/pc-gaming-honor-of-kings.jpg"
           alt="image 1"
-          className="h-full w-full object-cover"
+          className="lg:h-[90vh] w-full object-cover"
         />
-          <div className="absolute inset-0 flex h-full w-full bg-[#1a0d2196]">
-            <div className="lg:w-10/12 w-11/12 mx-auto lg:mt-20 mt-3">
+          <div className="absolute inset-0 flex h-ful w-full bg-[#1a0d2196]">
+            <div className="lg:w-10/12 w-11/12 mx-auto lg:mt-20 mt-3 flex flex-col justify-center">
               <Typography
                 variant="h1"
                 color="white"
@@ -37,18 +37,18 @@ const BannerSlider = () => {
             </div>
           </div>
         </div>
-        <div className="relative h-full w-full">
+        <div className="relative w-full flex">
         <img
-          src="https://wallpapersmug.com/download/1366x768/b9ef84/beautiful-akali-league-of-legends.jpg"
-          alt="image 2"
-          className="h-full w-full object-cover"
+          src="https://w0.peakpx.com/wallpaper/124/354/HD-wallpaper-garena-fire-bunny-fire.jpg"
+          alt="image 1"
+          className="lg:h-[90vh] w-full object-cover"
         />
-          <div className="absolute inset-0 flex h-full w-full bg-[#1a0d2196]">
-            <div className="lg:w-10/12 w-11/12 mx-auto lg:mt-20 mt-3">
+          <div className="absolute inset-0 flex h-ful w-full bg-[#1a0d2196]">
+            <div className="lg:w-10/12 w-11/12 mx-auto lg:mt-20 mt-3 flex flex-col justify-center">
               <Typography
                 variant="h1"
                 color="white"
-                className="lg:mb-3 text-2xl md:text-4xl lg:text-6xl"
+                className="lg:mb-3 text-2xl md:text-4xl lg:text-6xl font-oxanium"
               >
                 BEAUTIFUL GAME,<br /> INTENSE REALITY
               </Typography>
@@ -70,18 +70,18 @@ const BannerSlider = () => {
             </div>
           </div>
         </div>
-        <div className="relative h-full w-full">
+        <div className="relative w-full flex">
         <img
-          src="https://w0.peakpx.com/wallpaper/124/354/HD-wallpaper-garena-fire-bunny-fire.jpg"
-          alt="image 3"
-          className="h-full w-full object-cover"
+          src="https://wallpapersmug.com/download/1366x768/b9ef84/beautiful-akali-league-of-legends.jpg"
+          alt="image 1"
+          className="lg:h-[90vh] w-full object-cover"
         />
-          <div className="absolute inset-0 flex h-full w-full bg-[#1a0d2196]">
-            <div className="lg:w-10/12 w-11/12 mx-auto lg:mt-20 mt-3">
+          <div className="absolute inset-0 flex h-ful w-full bg-[#1a0d2196]">
+            <div className="lg:w-10/12 w-11/12 mx-auto lg:mt-20 mt-3 flex flex-col justify-center">
               <Typography
                 variant="h1"
                 color="white"
-                className="lg:mb-3 text-2xl md:text-4xl lg:text-6xl"
+                className="lg:mb-3 text-2xl md:text-4xl lg:text-6xl font-oxanium"
               >
                 BEAUTIFUL GAME,<br /> INTENSE REALITY
               </Typography>

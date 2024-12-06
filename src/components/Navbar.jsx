@@ -120,105 +120,105 @@ export function NavbarR() {
             {user ? (
               <div className="flex items-center gap-x-3">
                 {/* WatchList Menu */}
-              <Menu placement="bottom-start">
-                <MenuHandler>
-                    <IconButton
-                      size="md"
-                      className="rounded-full bg-transparent"
-                    >
-                      <MdBookmarkAdd className="text-3xl text-white"/>
-                    </IconButton>
-                </MenuHandler>
-                <MenuList>
-                  <div className="flex items-center gap-3">
-                    <div>
-                      {user && user.photoURL ? (
-                        <img
-                          src={user.photoURL}
-                          className="w-8 h-8 object-cover rounded-full"
-                          alt=""
-                        />
-                      ) : (
-                        <FaCircleUser className="text-3xl text-black  "></FaCircleUser>
-                      )}
-                    </div>
-                    <div>
-                      {user && user.displayName ? (
-                        <h1 className="font-semibold text-gray-800">
-                          {user.displayName}
-                        </h1>
-                      ) : (
-                        <h1 className="font-semibold text-gray-800">
-                          User Name
-                        </h1>
-                      )}
-                      {user && user.email ? (
-                        <p className="text-sm font-normal text-gray-800">
-                          {user.email}
-                        </p>
-                      ) : (
-                        <h1>email@user.com</h1>
-                      )}
-                    </div>
-                  </div>
-                  <div className="divider mt-0 mb-0"></div>
-                  <div>{profile}</div>
-                </MenuList>
-              </Menu>
-              {/* Profile Menu */}
                 <Menu placement="bottom-start">
-                <MenuHandler>
-                  {user && user.photoURL ? (
-                    <img
-                      src={user.photoURL}
-                      className="rounded-full w-9 h-9 object-cover cursor-pointer"
-                      alt=""
-                    />
-                  ) : (
+                  <MenuHandler>
                     <IconButton
                       size="md"
                       className="rounded-full bg-transparent"
                     >
-                      <FaCircleUser className="text-4xl text-black  "></FaCircleUser>
+                      <MdBookmarkAdd className="text-3xl text-white" />
                     </IconButton>
-                  )}
-                </MenuHandler>
-                <MenuList>
-                  <div className="flex items-center gap-3">
-                    <div>
-                      {user && user.photoURL ? (
-                        <img
-                          src={user.photoURL}
-                          className="w-8 h-8 object-cover rounded-full"
-                          alt=""
-                        />
-                      ) : (
-                        <FaCircleUser className="text-3xl text-black  "></FaCircleUser>
-                      )}
+                  </MenuHandler>
+                  <MenuList>
+                    <div className="flex items-center gap-3">
+                      <div>
+                        {user && user.photoURL ? (
+                          <img
+                            src={user.photoURL}
+                            className="w-8 h-8 object-cover rounded-full"
+                            alt=""
+                          />
+                        ) : (
+                          <FaCircleUser className="text-3xl text-black  "></FaCircleUser>
+                        )}
+                      </div>
+                      <div>
+                        {user && user.displayName ? (
+                          <h1 className="font-semibold text-gray-800">
+                            {user.displayName}
+                          </h1>
+                        ) : (
+                          <h1 className="font-semibold text-gray-800">
+                            User Name
+                          </h1>
+                        )}
+                        {user && user.email ? (
+                          <p className="text-sm font-normal text-gray-800">
+                            {user.email}
+                          </p>
+                        ) : (
+                          <h1>email@user.com</h1>
+                        )}
+                      </div>
                     </div>
-                    <div>
-                      {user && user.displayName ? (
-                        <h1 className="font-semibold text-gray-800">
-                          {user.displayName}
-                        </h1>
-                      ) : (
-                        <h1 className="font-semibold text-gray-800">
-                          User Name
-                        </h1>
-                      )}
-                      {user && user.email ? (
-                        <p className="text-sm font-normal text-gray-800">
-                          {user.email}
-                        </p>
-                      ) : (
-                        <h1>email@user.com</h1>
-                      )}
+                    <div className="divider mt-0 mb-0"></div>
+                    <div>{profile}</div>
+                  </MenuList>
+                </Menu>
+                {/* Profile Menu */}
+                <Menu placement="bottom-start">
+                  <MenuHandler>
+                    {user && user.photoURL ? (
+                      <img
+                        src={user.photoURL}
+                        className="rounded-full w-9 h-9 object-cover cursor-pointer"
+                        alt=""
+                      />
+                    ) : (
+                      <IconButton
+                        size="md"
+                        className="rounded-full bg-transparent"
+                      >
+                        <FaCircleUser className="text-4xl text-black  "></FaCircleUser>
+                      </IconButton>
+                    )}
+                  </MenuHandler>
+                  <MenuList>
+                    <div className="flex items-center gap-3">
+                      <div>
+                        {user && user.photoURL ? (
+                          <img
+                            src={user.photoURL}
+                            className="w-8 h-8 object-cover rounded-full"
+                            alt=""
+                          />
+                        ) : (
+                          <FaCircleUser className="text-3xl text-black  "></FaCircleUser>
+                        )}
+                      </div>
+                      <div>
+                        {user && user.displayName ? (
+                          <h1 className="font-semibold text-gray-800">
+                            {user.displayName}
+                          </h1>
+                        ) : (
+                          <h1 className="font-semibold text-gray-800">
+                            User Name
+                          </h1>
+                        )}
+                        {user && user.email ? (
+                          <p className="text-sm font-normal text-gray-800">
+                            {user.email}
+                          </p>
+                        ) : (
+                          <h1>email@user.com</h1>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                  <div className="divider mt-0 mb-0"></div>
-                  <div>{profile}</div>
-                </MenuList>
-              </Menu>
+                    <div className="divider mt-0 mb-0"></div>
+                    <div>{profile}</div>
+                  </MenuList>
+                </Menu>
                 <Link onClick={logOut} className="hidden lg:block">
                   <Button variant="text" size="sm" className="btn">
                     <span>Log Out</span>

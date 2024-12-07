@@ -6,11 +6,11 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const HighestRatedGameCard = ({ topReview }) => {
   console.log(topReview);
-  const { photo, gameName, rating, description, option, } =
-    topReview;
+  const {_id, photo, gameName, rating, description, option } = topReview;
   return (
     <div className="">
       <Card className="w-full max-w-[26rem] bg-opacity-20 backdrop-blur-lg bg-[#9742ff] rounded-2xl">
@@ -42,7 +42,7 @@ const HighestRatedGameCard = ({ topReview }) => {
             </Typography>
           </div>
           <Typography className="text-gray-400 text-justify">
-            {description.slice(0, 75)} ....
+            {description.slice(0, 72)} ....
           </Typography>
         </CardBody>
         <div className="flex justify-between p-6 items-center">
@@ -66,9 +66,11 @@ const HighestRatedGameCard = ({ topReview }) => {
               {rating}
             </Typography>
           </div>
-          <Button size="lg" fullWidth={false} className="btn">
-            Explore
-          </Button>
+          <Link to={`/review-details/${_id}`}>
+            <Button size="lg" fullWidth={false} className="btn">
+              Explore
+            </Button>
+          </Link>
         </div>
       </Card>
     </div>
@@ -76,7 +78,7 @@ const HighestRatedGameCard = ({ topReview }) => {
 };
 
 HighestRatedGameCard.propTypes = {
-    topReview: PropTypes.any,
-  };
+  topReview: PropTypes.any,
+};
 
 export default HighestRatedGameCard;

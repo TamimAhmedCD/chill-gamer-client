@@ -26,22 +26,19 @@ const MyReview = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(`http://localhost:5000/reviews/${_id}`, {
-          method: "DELETE",
+          method: "DELETE"
         })
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
-            if (data.deleteCount > 0) {
+            if (data.deletedCount > 0) {
               Swal.fire({
                 title: "Deleted!",
                 text: "Your Review has been deleted.",
                 icon: "success",
-              });
-
-              const remaining = filterData.filter(
-                (review) => review._id !== _id
-              );
-              setFilterData(remaining);
+              })
+              const remaining = filterData.filter(data => data._id !== _id)
+              setFilterData(remaining)
             }
           });
       }

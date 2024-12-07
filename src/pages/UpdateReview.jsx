@@ -13,7 +13,7 @@ const UpdateReview = () => {
 
   const navigate = useNavigate();
 
-  const handleReview = (e) => {
+  const handleUpdateReview = (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
     const name = form.get("name");
@@ -24,7 +24,8 @@ const UpdateReview = () => {
     const rating = form.get("rating");
     const publishYear = form.get("publishYear");
     const option = form.get("option");
-    const updateReview = {
+
+    const updatedReview = {
       name,
       email,
       photo,
@@ -39,21 +40,23 @@ const UpdateReview = () => {
     fetch(`http://localhost:5000/reviews/${_id}`, {
       method: "PUT",
       headers: {
-        "content-type": "application/json",
+        'content-type': 'application/json'
       },
-      body: JSON.stringify(updateReview),
+      body: JSON.stringify(updatedReview)
     })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.modifiedCount > 0) {
-          Swal.fire({
-            title: "Success",
-            text: "Your Review Updated successfully",
-            icon: "success",
-          });
-          navigate("/my-review");
-        }
-      });
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      if(data.modifiedCount > 0){
+        Swal.fire({
+          title: 'success!',
+          text: 'Your review added successfully',
+          icon: 'success',
+          confirmButtonText: 'OK'
+        })
+      }
+      navigate('/my-review')
+    })
   };
 
   return (
@@ -61,7 +64,7 @@ const UpdateReview = () => {
       <div className="py-10">
         <div className="border bg-white backdrop-blur-3xl bg-opacity-5 text-white p-5 md:p-10 rounded-xl border-[#9742ff]">
           <h1 className="text-center font-bold text-3xl">Update Review</h1>
-          <form className="text-white mt-10" onSubmit={handleReview}>
+          <form className="text-white mt-10" onSubmit={handleUpdateReview}>
             <div className="flex gap-4 w-full">
               <input
                 type="text"

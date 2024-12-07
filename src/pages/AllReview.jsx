@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import {
   Button,
   Card,
@@ -40,7 +40,7 @@ const AllReview = () => {
         setGenres([...genreSet]);
       });
   }, []);
-  
+
   const filteredReviews = selectedGenre
     ? reviewsS.filter((review) => review.option === selectedGenre)
     : reviewsS;
@@ -143,9 +143,11 @@ const AllReview = () => {
                       <span className="text-gray-500">{review.option}</span>
                     </p>
                   </div>
-                  <Button size="lg" fullWidth={false} className="btn">
-                    Explore
-                  </Button>
+                  <Link to={`/review-details/${review._id}`}>
+                    <Button size="lg" fullWidth={false} className="btn">
+                      Explore
+                    </Button>
+                  </Link>
                 </div>
               </Card>
             </div>

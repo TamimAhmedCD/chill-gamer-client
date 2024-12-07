@@ -1,10 +1,16 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthProvider } from "../context/AuthContext";
-import Swal from 'sweetalert2'
-import { useNavigate } from 'react-router-dom';
+import Swal from "sweetalert2";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
-const AddReview = () => {
+const UpdateReview = () => {
   const { user } = useContext(AuthProvider);
+  const updateCoffee = useLoaderData();
+  const { _id, photo, gameName, description, rating, publishYear, option } =
+    updateCoffee;
+
+  const [selectedGenre] = useState(option);
+
   const navigate = useNavigate();
 
   const handleReview = (e) => {
@@ -18,7 +24,7 @@ const AddReview = () => {
     const rating = form.get("rating");
     const publishYear = form.get("publishYear");
     const option = form.get("option");
-    const newReview = {
+    const updateReview = {
       name,
       email,
       photo,
@@ -28,36 +34,33 @@ const AddReview = () => {
       publishYear,
       option,
     };
-    console.log(newReview);
 
     // send data to the server
-    fetch('http://localhost:5000/reviews', {
-      method: "POST",
+    fetch(`http://localhost:5000/reviews/${_id}`, {
+      method: "PUT",
       headers: {
-        'content-type': 'application/json'
+        "content-type": "application/json",
       },
-      body: JSON.stringify(newReview)
+      body: JSON.stringify(updateReview),
     })
-    .then(res => res.json())
-    .then(data => {
-      console.log(data);
-      if(data.insertedId){
-        Swal.fire({
-          title: 'success!',
-          text: 'Your review added successfully',
-          icon: 'success',
-          confirmButtonText: 'OK'
-        })
-      }
-      navigate('/my-review')
-    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          Swal.fire({
+            title: "Success",
+            text: "Your Review Updated successfully",
+            icon: "success",
+          });
+          navigate("/my-review");
+        }
+      });
   };
 
   return (
     <div className="w-11/12 lg:w-10/12 mx-auto">
       <div className="py-10">
         <div className="border bg-white backdrop-blur-3xl bg-opacity-5 text-white p-5 md:p-10 rounded-xl border-[#9742ff]">
-          <h1 className="text-center font-bold text-3xl">Add a New Review</h1>
+          <h1 className="text-center font-bold text-3xl">Update Review</h1>
           <form className="text-white mt-10" onSubmit={handleReview}>
             <div className="flex gap-4 w-full">
               <input
@@ -80,12 +83,14 @@ const AddReview = () => {
               type="text"
               placeholder="Game cover img URL"
               name="photo"
+              defaultValue={photo}
               required
               className="input input-bordered focus:outline-[#9742ffc9] w-full border-none bg-[#fff] bg-opacity-10 mt-4"
             />
             <input
               type="text"
               placeholder="Game Title"
+              defaultValue={gameName}
               required
               name="gameName"
               className="input input-bordered focus:outline-[#9742ffc9] w-full border-none bg-[#fff] bg-opacity-10 mt-4"
@@ -93,12 +98,14 @@ const AddReview = () => {
             <textarea
               className="textarea focus:outline-[#9742ffc9] w-full bg-[#fff] bg-opacity-10 mt-4 mb-4 h-36"
               placeholder="Write your review here"
+              defaultValue={description}
               name="description"
             ></textarea>
             <div className="flex gap-4 w-full">
               <input
                 type="text"
                 placeholder="Rating"
+                defaultValue={rating}
                 required
                 name="rating"
                 className="input focus:outline-[#9742ffc9] w-full bg-[#fff] bg-opacity-10 mb-4"
@@ -107,25 +114,24 @@ const AddReview = () => {
                 type="text"
                 required
                 placeholder="Publishing year"
+                defaultValue={publishYear}
                 name="publishYear"
                 className="input focus:outline-[#9742ffc9] w-full bg-[#fff] bg-opacity-10 mb-4"
               />
             </div>
             <select
               name="option"
+              defaultValue={selectedGenre}
               required
               className="select select-bordered w-full focus:outline-[#9742ffc9] g-[#fff] bg-opacity-10"
             >
-              <option disabled selected>
-                Select Genre
-              </option>
-              <option>Action</option>
-              <option>RPG</option>
-              <option>Adventure</option>
-              <option>Puzzle</option>
-              <option>Horror</option>
-              <option>Strategy</option>
-              <option>Shooter</option>
+              <option value="action">Action</option>
+              <option value="rpg">RPG</option>
+              <option value="adventure">Adventure</option>
+              <option value="Puzzle">Puzzle</option>
+              <option value="horror">Horror</option>
+              <option value="strategy">Strategy</option>
+              <option value="shooter">Shooter</option>
             </select>
             <div className="form-control mt-2">
               <label className="label cursor-pointer justify-start gap-3">
@@ -143,7 +149,7 @@ const AddReview = () => {
                 </span>
               </label>
             </div>
-            <button className="btn w-full mt-6">Submit Review</button>
+            <button className="btn w-full mt-6">Update Review</button>
           </form>
         </div>
       </div>
@@ -151,4 +157,4 @@ const AddReview = () => {
   );
 };
 
-export default AddReview;
+export default UpdateReview;

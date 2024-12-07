@@ -120,51 +120,9 @@ export function NavbarR() {
             {user ? (
               <div className="flex items-center gap-x-3">
                 {/* WatchList Menu */}
-                <Menu placement="bottom-start">
-                  <MenuHandler>
-                    <IconButton
-                      size="md"
-                      className="rounded-full bg-transparent"
-                    >
-                      <MdBookmarkAdd className="text-3xl text-white" />
-                    </IconButton>
-                  </MenuHandler>
-                  <MenuList>
-                    <div className="flex items-center gap-3">
-                      <div>
-                        {user && user.photoURL ? (
-                          <img
-                            src={user.photoURL}
-                            className="w-8 h-8 object-cover rounded-full"
-                            alt=""
-                          />
-                        ) : (
-                          <FaCircleUser className="text-3xl text-black  "></FaCircleUser>
-                        )}
-                      </div>
-                      <div>
-                        {user && user.displayName ? (
-                          <h1 className="font-semibold text-gray-800">
-                            {user.displayName}
-                          </h1>
-                        ) : (
-                          <h1 className="font-semibold text-gray-800">
-                            User Name
-                          </h1>
-                        )}
-                        {user && user.email ? (
-                          <p className="text-sm font-normal text-gray-800">
-                            {user.email}
-                          </p>
-                        ) : (
-                          <h1>email@user.com</h1>
-                        )}
-                      </div>
-                    </div>
-                    <div className="divider mt-0 mb-0"></div>
-                    <div>{profile}</div>
-                  </MenuList>
-                </Menu>
+                <NavLink to="/watch-list">
+                <MdBookmarkAdd className="text-3xl text-white" />
+                </NavLink>
                 {/* Profile Menu */}
                 <Menu placement="bottom-start">
                   <MenuHandler>

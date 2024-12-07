@@ -12,6 +12,8 @@ import AuthContext from "./context/AuthContext";
 import AddReview from "./pages/AddReview";
 import MyReview from "./pages/MyReview";
 import PrivateRoute from "./routes/PrivateRoute";
+import UpdateReview from "./pages/UpdateReview";
+import WatchList from "./pages/Watchlist";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +47,15 @@ const router = createBrowserRouter([
         path: '/my-review',
         element: <PrivateRoute><MyReview/></PrivateRoute>,
         loader: () => fetch('http://localhost:5000/reviews')
+      },
+      {
+        path: '/watch-list',
+        element: <PrivateRoute><WatchList/></PrivateRoute>,
+      },
+      {
+        path: '/update-review/:id',
+        element: <PrivateRoute><UpdateReview/></PrivateRoute>,
+        loader: ({params}) => fetch(`http://localhost:5000/reviews/${params.id}`)
       },
     ],
   },

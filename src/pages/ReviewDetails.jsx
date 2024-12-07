@@ -36,7 +36,7 @@ const ReviewDetails = () => {
       option,
     };
   
-    fetch('http://localhost:5000/watch-list', {
+    fetch('https://server-one-jade.vercel.app/watch-list', {
       method: "POST",
       headers: {
         'content-type': 'application/json',

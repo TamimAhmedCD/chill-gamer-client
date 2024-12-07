@@ -25,7 +25,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch('http://localhost:5000/top-reviews')
+        loader: () => fetch('https://server-one-jade.vercel.app/top-reviews')
       },
       {
         path: "/login",
@@ -42,27 +42,27 @@ const router = createBrowserRouter([
       {
         path: "/all-review",
         element: <AllReview />,
-        loader: () => fetch('http://localhost:5000/reviews')
+        loader: () => fetch('https://server-one-jade.vercel.app/reviews')
       },
       {
         path: '/my-review',
         element: <PrivateRoute><MyReview/></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/reviews')
+        loader: () => fetch('https://server-one-jade.vercel.app/reviews')
       },
       {
         path: '/watch-list',
         element: <PrivateRoute><WatchList/></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/watch-list')
+        loader: () => fetch('https://server-one-jade.vercel.app/watch-list')
       },
       {
         path: '/review-details/:id',
         element: <PrivateRoute><ReviewDetails/></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/reviews/${params.id}`)
+        loader: ({params}) => fetch(`https://server-one-jade.vercel.app/reviews/${params.id}`)
       },
       {
         path: '/update-review/:id',
         element: <PrivateRoute><UpdateReview/></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/reviews/${params.id}`)
+        loader: ({params}) => fetch(`https://server-one-jade.vercel.app/reviews/${params.id}`)
       },
     ],
   },

@@ -25,8 +25,8 @@ const MyReview = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/reviews/${_id}`, {
-          method: "DELETE"
+        fetch(`https://server-one-jade.vercel.app/reviews/${_id}`, {
+          method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
@@ -36,23 +36,14 @@ const MyReview = () => {
                 title: "Deleted!",
                 text: "Your Review has been deleted.",
                 icon: "success",
-              })
-              const remaining = filterData.filter(data => data._id !== _id)
-              setFilterData(remaining)
+              });
+              const remaining = filterData.filter((data) => data._id !== _id);
+              setFilterData(remaining);
             }
           });
       }
     });
   };
-
-  const TABLE_HEAD = [
-    "Name",
-    "Game Name",
-    "Rating",
-    "Option",
-    "Release Date",
-    "Actions",
-  ];
 
   return (
     <div className="w-11/12 lg:w-10/12 mx-auto h-screen">
@@ -63,17 +54,60 @@ const MyReview = () => {
         <table className="">
           <thead>
             <tr>
-              {TABLE_HEAD.map((head) => (
-                <th key={head} className="p-4 pt-10">
-                  <Typography
-                    variant="small"
-                    color="blue-gray"
-                    className="font-bold leading-none text-[#d1aefc]"
-                  >
-                    {head}
-                  </Typography>
-                </th>
-              ))}
+              <th className="p-4 pt-10 md:block hidden">
+                <Typography
+                  variant="small"
+                  color="blue-gray"
+                  className="font-bold leading-none text-[#d1aefc]"
+                >
+                  <p>Name</p>
+                </Typography>
+              </th>
+              <th className="p-4 pt-10">
+                <Typography
+                  variant="small"
+                  color="blue-gray"
+                  className="font-bold leading-none text-[#d1aefc]"
+                >
+                  <p>Game Name</p>
+                </Typography>
+              </th>
+              <th className="p-4 pt-10">
+                <Typography
+                  variant="small"
+                  color="blue-gray"
+                  className="font-bold leading-none text-[#d1aefc]"
+                >
+                  <p>Rating</p>
+                </Typography>
+              </th>
+              <th className="p-4 pt-10">
+                <Typography
+                  variant="small"
+                  color="blue-gray"
+                  className="font-bold leading-none text-[#d1aefc]"
+                >
+                  <p>Option</p>
+                </Typography>
+              </th>
+              <th className="p-4 pt-10">
+                <Typography
+                  variant="small"
+                  color="blue-gray"
+                  className="font-bold leading-none text-[#d1aefc]"
+                >
+                  <p>Release Date</p>
+                </Typography>
+              </th>
+              <th className="p-4 pt-10">
+                <Typography
+                  variant="small"
+                  color="blue-gray"
+                  className="font-bold leading-none text-[#d1aefc]"
+                >
+                  <p>Actions</p>
+                </Typography>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -81,7 +115,7 @@ const MyReview = () => {
               filterData.map((review) => {
                 return (
                   <tr key={review._id}>
-                    <td className="p-4">
+                    <td className="p-4 hidden md:block">
                       <Typography
                         variant="small"
                         className="text-center text-gray-300"

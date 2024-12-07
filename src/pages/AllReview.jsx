@@ -31,7 +31,7 @@ const AllReview = () => {
   // sort by genres
 
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://server-one-jade.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);

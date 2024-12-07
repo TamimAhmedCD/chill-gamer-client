@@ -37,7 +37,7 @@ const UpdateReview = () => {
     };
 
     // send data to the server
-    fetch(`http://localhost:5000/reviews/${_id}`, {
+    fetch(`https://server-one-jade.vercel.app/reviews/${_id}`, {
       method: "PUT",
       headers: {
         'content-type': 'application/json'

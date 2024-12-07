@@ -45,7 +45,7 @@ const Register = () => {
         const newUser = {name, email, photo}
 
         // save new user info to the database
-        fetch('http://localhost:5000/users', {
+        fetch('https://server-one-jade.vercel.app/users', {
           method: "POST",
           headers: {
             'content-type': 'application/json'

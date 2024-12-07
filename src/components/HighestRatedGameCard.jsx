@@ -9,7 +9,6 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const HighestRatedGameCard = ({ topReview }) => {
-  console.log(topReview);
   const {_id, photo, gameName, rating, description, option } = topReview;
   return (
     <div className="">

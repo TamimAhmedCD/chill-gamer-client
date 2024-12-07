@@ -7,7 +7,7 @@ import { AuthProvider } from "../context/AuthContext";
 const WatchList = () => {
   const watchList = useLoaderData();
   const { user } = useContext(AuthProvider);
-  const [filterData, setFilterData] = useState(
+  const [filterData] = useState(
     watchList.filter((review) => review.userMail === user?.email)
   );
 
@@ -25,7 +25,7 @@ const WatchList = () => {
   return (
     <div className="w-11/12 lg:w-10/12 mx-auto h-screen">
       <h1 className="text-center text-4xl font-bold text-white font-oxanium py-10">
-        My <span className="text-[#9742ff]">Reviews</span>
+        My <span className="text-[#9742ff]">Watch list</span>
       </h1>
       <Card className="shadow-none bg-opacity-20 backdrop-blur-3xl border border-[#9742ff]">
         <table className="">

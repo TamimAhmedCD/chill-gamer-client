@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthProvider } from "../context/AuthContext";
 import { Card, IconButton, Typography } from "@material-tailwind/react";
@@ -44,6 +44,11 @@ const MyReview = () => {
       }
     });
   };
+
+  useEffect(() => {
+    document.title = "My Review | Chill Gamer";
+  }, []);
+
 
   return (
     <div className="w-11/12 lg:w-10/12 mx-auto h-screen">

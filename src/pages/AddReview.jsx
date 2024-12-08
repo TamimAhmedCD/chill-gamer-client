@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthProvider } from "../context/AuthContext";
 import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom';
@@ -52,6 +52,11 @@ const AddReview = () => {
       navigate('/my-review')
     })
   };
+
+  useEffect(() => {
+    document.title = "Add Review | Chill Gamer";
+  }, []);
+
 
   return (
     <div className="w-11/12 lg:w-10/12 mx-auto">

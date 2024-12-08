@@ -5,9 +5,14 @@ import HighestRatedGameCard from "../components/HighestRatedGameCard";
 import WatchStreaming from "../components/WatchStreaming";
 import JoinUs from "../components/JoinUs";
 import { Fade } from "react-awesome-reveal";
+import { useEffect } from "react";
 
 const Home = () => {
   const topReviews = useLoaderData();
+
+  useEffect(() => {
+    document.title = "Home | Chill Gamer";
+  }, []);
 
   return (
     <div>

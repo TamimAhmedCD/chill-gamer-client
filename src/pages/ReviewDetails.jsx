@@ -5,7 +5,7 @@ import { Button, IconButton, Typography } from "@material-tailwind/react";
 import { MdBookmarkAdd } from "react-icons/md";
 import { FaHeart } from "react-icons/fa";
 import Swal from "sweetalert2";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthProvider } from "../context/AuthContext";
 
 const ReviewDetails = () => {
@@ -56,6 +56,11 @@ const ReviewDetails = () => {
       }
     })
   }
+
+  useEffect(() => {
+    document.title = "Review Details | Chill Gamer";
+  }, []);
+
 
   return (
     <div className="w-11/12 lg:w-10/12 mx-auto">

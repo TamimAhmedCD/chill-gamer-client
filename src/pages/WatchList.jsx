@@ -1,5 +1,5 @@
 import { Card, IconButton, Typography } from "@material-tailwind/react";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MdDelete, MdModeEdit } from "react-icons/md";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthProvider } from "../context/AuthContext";
@@ -21,6 +21,11 @@ const WatchList = () => {
     "Release Date",
     "Actions",
   ];
+
+  useEffect(() => {
+    document.title = "Watch List | Chill Gamer";
+  }, []);
+
 
   return (
     <div className="w-11/12 lg:w-10/12 mx-auto h-screen">

@@ -45,6 +45,11 @@ const AllReview = () => {
     ? reviewsS.filter((review) => review.option === selectedGenre)
     : reviewsS;
 
+    useEffect(() => {
+      document.title = "All Review | Chill Gamer";
+    }, []);
+  
+
   return (
     <div className="w-11/12 lg:w-10/12 mx-auto">
       <div className="py-10">

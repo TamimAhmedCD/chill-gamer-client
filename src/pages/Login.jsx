@@ -3,7 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import { VscGithubInverted } from "react-icons/vsc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthProvider } from "../context/AuthContext";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 import { toast } from 'react-toastify';
 
@@ -39,7 +39,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
-        navigate(location?.state ? location.state : <>{navigate("/")}</>);
+        navigate(location?.state ? location.state : '/');
         toast.success('Login Success')
       })
       .catch((error) => {
@@ -48,6 +48,11 @@ const Login = () => {
         alert.error(errorCode, errorMessage);
       });
   };
+
+  useEffect(() => {
+    document.title = "Login | Chill Gamer";
+  }, []);
+
 
   return (
     <div>

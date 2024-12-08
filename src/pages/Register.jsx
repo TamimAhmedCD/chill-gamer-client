@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { VscGithubInverted } from "react-icons/vsc";
 import { AuthProvider } from "../context/AuthContext";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 import { toast } from "react-toastify";
 
@@ -42,7 +42,6 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
-        toast.success('Register Success')
 
         const newUser = {name, email, photo}
 
@@ -61,7 +60,8 @@ const Register = () => {
 
         updateUserProfile({ displayName: name, photoURL: photo })
           .then(() => {
-            navigate("/");
+            toast.success('Register Success')
+            navigate(location?.state ? location.state : "/");
           })
           .catch((error) => {
             alert(error.error);
@@ -79,7 +79,7 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
-        navigate(location?.state ? location.state : <>{navigate("/")}</>);
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         // Handle Errors here.
@@ -88,6 +88,11 @@ const Register = () => {
         alert.error(errorCode, errorMessage);
       });
   };
+
+  useEffect(() => {
+    document.title = "Register | Chill Gamer";
+  }, []);
+
 
   return (
     <section className="flex md:flex-row flex-col w-11/12 lg:w-10/12 mx-auto mt-10 p-5 bg-[#0c0c36] rounded-xl bg-opacity-50 backdrop-blur-lg gap-10">

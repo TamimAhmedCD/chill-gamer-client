@@ -3,6 +3,7 @@ import BannerSlider from "../components/BannerSlider";
 import HighestRatedGame from "../components/HighestRatedGame";
 import HighestRatedGameCard from "../components/HighestRatedGameCard";
 import WatchStreaming from "../components/WatchStreaming";
+import JoinUs from "../components/JoinUs";
 
 const Home = () => {
   const topReviews = useLoaderData();
@@ -23,9 +24,11 @@ const Home = () => {
       </section>
 
       {/* Watch live streaming */}
-      <section>
         <WatchStreaming/>
-      </section>
+
+        {/* Join us section */}
+        <JoinUs/>
+
     </div>
   );
 };

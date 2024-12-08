@@ -20,7 +20,7 @@ body {
   /* background color */
   --bg-purple: #9742ff;
   --bg-purple-alpha-30: #9742ff4d;
-  --bg-dark-purple: hsla(279, 42%, 9%, 1);
+  --bg-dark-purple: #1a0d21;
   --bg-oxford-blue: #0c0c36;
   --bg-oxford-blue-alpha-95: hsla(240, 63%, 13%, 0.95);
   --bg-oxford-blue-alpha-90: hsla(240, 63%, 13%, 0.9);
@@ -152,6 +152,7 @@ body {
   clip-path: polygon(0% 0%, 90% 0, 100% 30%, 100% 100%, 0 100%);
   overflow: hidden;
 }
+
 
 .btn::before {
   content: "";

@@ -103,8 +103,8 @@ export function NavbarR() {
   );
 
   return (
-    <div className="">
-      <Navbar className="bg-[hsla(240, 63%, 13%, 1)] sticky top-0 z-10 h-max max-w-full rounded-none border-none px-0 py-2 lg:py-4">
+    <div className="sticky top-0 z-10">
+      <Navbar className="bg-[hsla(240, 63%, 13%, 1)] h-max max-w-full rounded-none border-none px-0 py-2 lg:py-4">
         <div className="flex items-center justify-between text-blue-gray-900 lg:w-10/12 w-11/12 mx-auto">
           <Link>
             <Typography

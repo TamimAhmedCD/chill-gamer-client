@@ -1,6 +1,7 @@
 import { Button, Carousel, Typography } from "@material-tailwind/react";
 import { Typewriter } from "react-simple-typewriter";
 
+
 const BannerSlider = () => {
   return (
     <div className="">
@@ -39,8 +40,7 @@ const BannerSlider = () => {
                 color="white"
                 className="mb-3 opacity-80 w-3/4 md:w-2/4 text-base md:text-xl"
               >
-                Review games, manage your watchlist, and elevate your gaming
-                experience—all in one place! 🎮
+                
               </Typography>
               <div className="flex gap-2 lg:mt-10">
                 <Button className="btn">Explore</Button>

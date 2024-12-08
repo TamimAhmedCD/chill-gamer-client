@@ -4,13 +4,16 @@ import HighestRatedGame from "../components/HighestRatedGame";
 import HighestRatedGameCard from "../components/HighestRatedGameCard";
 import WatchStreaming from "../components/WatchStreaming";
 import JoinUs from "../components/JoinUs";
+import { Fade } from "react-awesome-reveal";
 
 const Home = () => {
   const topReviews = useLoaderData();
 
   return (
     <div>
-      <BannerSlider />
+    <Fade>
+    <BannerSlider />
+    </Fade>
 
       {/* Top rated game */}
       <HighestRatedGame />

@@ -13,7 +13,7 @@ const WatchList = () => {
         role="menu"
         data-popover="menu-1"
         data-popover-placement="bottom"
-        className="absolute z-10 min-w-[180px] overflow-auto rounded-lg border border-slate-200 bg-white p-1.5 shadow-lg shadow-sm focus:outline-none"
+        className="absolute z-10 min-w-[180px] overflow-auto rounded-lg border border-slate-200 bg-white p-1.5 shadow-lg focus:outline-none"
       >
         <li
           role="menuitem"
@@ -46,7 +46,7 @@ const WatchList = () => {
         data-popover="nested-menu"
         data-popover-offset="20"
         data-popover-placement="right-start"
-        className="absolute z-10 min-w-[180px] overflow-auto rounded-lg border border-slate-200 bg-white p-1.5 shadow-lg shadow-sm focus:outline-none"
+        className="absolute z-10 min-w-[180px] overflow-auto rounded-lg border border-slate-200 bg-white p-1.5 shadow-lg focus:outline-none"
       >
         <li
           role="menuitem"

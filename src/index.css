@@ -9,6 +9,7 @@ body {
   background-color: #1a0d21;
   background-image: url("./assets/body-bg.jpg");
   background-repeat: no-repeat;
+  background-size: cover;
   font-family: 'Raleway', sans-serif;
 }
 :root {

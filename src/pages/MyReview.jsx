@@ -14,7 +14,6 @@ const MyReview = () => {
   );
 
   const handleDelete = (_id) => {
-    console.log(_id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -30,7 +29,6 @@ const MyReview = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire({
                 title: "Deleted!",
@@ -51,11 +49,11 @@ const MyReview = () => {
 
 
   return (
-    <div className="w-11/12 lg:w-10/12 mx-auto h-screen">
+    <div className="w-11/12 lg:w-10/12 mx-auto mb-10">
       <h1 className="text-center text-4xl font-bold text-white font-oxanium py-10">
         My <span className="text-[#9742ff]">Reviews</span>
       </h1>
-      <Card className="shadow-none bg-opacity-20 backdrop-blur-3xl border border-[#9742ff]">
+      <Card className="shadow-none bg-opacity-20 backdrop-blur-3xl border border-[#9742ff] md:overflow-auto overflow-scroll">
         <table className="">
           <thead>
             <tr>
@@ -86,7 +84,7 @@ const MyReview = () => {
                   <p>Rating</p>
                 </Typography>
               </th>
-              <th className="p-4 pt-10">
+              <th className="p-4 pt-10 hidden md:block">
                 <Typography
                   variant="small"
                   color="blue-gray"
@@ -144,7 +142,7 @@ const MyReview = () => {
                         {review.rating}
                       </Typography>
                     </td>
-                    <td className="p-4">
+                    <td className="p-4 hidden md:block">
                       <Typography
                         variant="small"
                         className="font-normal text-gray-500 text-center"

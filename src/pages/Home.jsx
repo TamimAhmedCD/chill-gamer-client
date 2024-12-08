@@ -15,7 +15,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className="">
     <Fade>
     <BannerSlider />
     </Fade>

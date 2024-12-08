@@ -28,7 +28,6 @@ const AddReview = () => {
       publishYear,
       option,
     };
-    console.log(newReview);
 
     // send data to the server
     fetch('https://server-one-jade.vercel.app/reviews', {
@@ -40,7 +39,6 @@ const AddReview = () => {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data);
       if(data.insertedId){
         Swal.fire({
           title: 'success!',

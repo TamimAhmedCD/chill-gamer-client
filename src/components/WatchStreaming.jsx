@@ -12,7 +12,7 @@ const WatchStreaming = () => {
         <span className="hidden md:block">to our talented and highly committed team.</span>
       </p>
       <div className="p-4 border border-[#9742ff] bg-white bg-opacity-10 backdrop-blur-3xl rounded-xl mt-5">
-        <a href="www.youtube.com" target="_blank">
+        <a href="https://www.youtube.com" target="_blank">
           {" "}
           <img
             className="w-full rounded-xl"

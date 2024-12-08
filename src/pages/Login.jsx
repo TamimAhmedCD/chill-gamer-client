@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthProvider } from "../context/AuthContext";
 import { useContext, useState } from "react";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const { userLogin, setUser, handleGoogleLogin } = useContext(AuthProvider);
@@ -25,7 +26,8 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
-        navigate(location?.state ? location.state : <>{navigate("/")}</>);
+        navigate(location?.state ? location.state : '/');
+        toast.success('Login Success')
       })
       .catch((error) => {
         setError(error.code);
@@ -38,6 +40,7 @@ const Login = () => {
         const user = result.user;
         setUser(user);
         navigate(location?.state ? location.state : <>{navigate("/")}</>);
+        toast.success('Login Success')
       })
       .catch((error) => {
         const errorCode = error.code;

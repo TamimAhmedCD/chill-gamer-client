@@ -5,6 +5,7 @@ import { VscGithubInverted } from "react-icons/vsc";
 import { AuthProvider } from "../context/AuthContext";
 import { useContext, useState } from "react";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const { createNewUser, setUser, handleGoogleLogin, updateUserProfile } =
@@ -41,6 +42,7 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
+        toast.success('Register Success')
 
         const newUser = {name, email, photo}
 

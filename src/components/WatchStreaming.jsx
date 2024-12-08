@@ -4,8 +4,8 @@ const WatchStreaming = () => {
       <p className="uppercase font-bold font-oxanium text-white text-center pb-3 md:text-xl text-lg">
         Watch the Gameplay
       </p>
-      <h1 className="text-4xl md:text-5xl text-center font-bold text-white font-oxanium">
-        Highest Rated <span className="text-[#9742ff]">Games</span>
+      <h1 className="text-4xl md:text-5xl text-center font-bold text-white font-oxanium uppercase">
+      Watch Live <span className="text-[#9742ff]">Streaming</span>
       </h1>
       <p className="text-white font-oxanium text-center pt-4 md:w-3/6 w-5/6 mx-auto">
         Our success in creating business solutions is due in large part <br />

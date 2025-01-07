@@ -89,16 +89,20 @@ export function NavbarR() {
           Add Reviews
         </NavLink>
       </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-normal"
-      >
-        <NavLink to="/my-review" className="flex items-center text-white">
-          My Reviews
-        </NavLink>
-      </Typography>
+      {user?.email ? (
+        <Typography
+          as="li"
+          variant="small"
+          color="blue-gray"
+          className="p-1 font-normal"
+        >
+          <NavLink to="/my-review" className="flex items-center text-white">
+            My Reviews
+          </NavLink>
+        </Typography>
+      ) : (
+        ""
+      )}
     </ul>
   );
 
@@ -121,7 +125,7 @@ export function NavbarR() {
               <div className="flex items-center gap-x-3">
                 {/* WatchList Menu */}
                 <NavLink to="/watch-list">
-                <MdBookmarkAdd className="text-3xl text-white" />
+                  <MdBookmarkAdd className="text-3xl text-white" />
                 </NavLink>
                 {/* Profile Menu */}
                 <Menu placement="bottom-start">
